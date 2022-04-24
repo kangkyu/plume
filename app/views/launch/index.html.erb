@@ -1,1 +1,4 @@
-<div data-controller="hello"></div>
+<%= content_tag :div, data: { controller: "hello" } do %>
+  <%= text_area_tag :poem, nil, data: { hello_target: "words" } %>
+  <%= button_tag 'Submit', data: { action: "hello#sendMessage" } %>
+<% end %>

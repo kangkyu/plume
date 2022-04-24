@@ -1,14 +1,14 @@
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
+  static targets = [ "words" ]
 
   connect() {
     console.log("Hello World!")
-    this.sendMessage()
   }
 
-  sendMessage() {
-    var data = { message: "Hello World!" }
+  sendMessage(e) {
+    var data = { message: this.wordsTarget.value }
     fetch("http://localhost:8080/submit", {
       method: 'POST',
       mode: 'no-cors',
